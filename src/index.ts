@@ -81,6 +81,17 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Welcome to AfroSnap AI Backend API',
+    version: '1.0.0',
+    documentation: '/api/docs',
+    health: '/health',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Swagger/OpenAPI setup
 const swaggerDefinition = {
   openapi: '3.0.0',
